@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Edit Book</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('/library_management_system/src/main/resources/static/image/Library.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            background-color: #c9c9c9;
+            color: #090909;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .form-container {
+            background-color: rgba(9, 89, 85, 0.964);
+            padding: 20px;
+            margin-top: 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .form-container h1 {
+            color: white;
+        }
+
+        .form-container form {
+            display: inline-block;
+            text-align: left;
+        }
+
+        .form-container form div {
+            margin-bottom: 15px;
+        }
+
+        .form-container label {
+            color: white;
+            display: block;
+            margin-bottom: 5px;
+            font-size: 18px;
+        }
+
+        .form-container input[type="text"],
+        .form-container input[type="date"] {
+            font-size: 20px;
+            padding: 5px;
+            width: 100%;
+            max-width: 300px;
+        }
+
+        .form-container button {
+            background-color: darkblue;
+            color: white;
+            border: none;
+            font-size: 16px;
+            font-weight: bold;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+
+        .form-container .btn-back {
+            display: inline-block;
+            margin: 20px auto;
+            padding: 5px 10px;
+            background-color: darkblue;
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        .btn-back:hover {
+            color: yellow;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>e-Library Management System</h1>
+        </header>
+        <div class="form-container">
+            <form method="post" th:action="@{/books/edit/{id}(id=${book.id})}">
+                <div>
+                    <label>Book Name</label>
+                    <input type="text" name="name" th:value="${book.name}" required />
+                </div>
+                <div>
+                    <label>Author Name</label>
+                    <input type="text" name="author" th:value="${book.author}" required />
+                </div>
+                <div>
+                    <label>Student Name</label>
+                    <input type="text" name="studentName" th:value="${book.studentName}" required />
+                </div>
+                <div>
+                    <label>Issue Date</label>
+                    <input type="date" name="issueDate" th:value="${book.issueDate}" required />
+                </div>
+                <div>
+                    <label>Expiry Date</label>
+                    <input type="date" name="expiryDate" th:value="${book.expiryDate}" required />
+                </div>
+                <div>
+                    <button type="submit">Update</button>
+                </div>
+            </form>
+            <a href="/books" class="btn-back">Back to Books</a>
+        </div>
+    </div>
+</body>
+</html>
+
